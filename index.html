@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaPlus - Pesan & Konsultasi Obat Secara Online</title>
+    <link rel="icon" type="image/svg+xml" href="/Assets/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="announcement-bar" id="topBar">
+        <div class="announcement-content">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span>Gratis ongkir untuk pengantaran hari Ini! <a href="#" onclick="event.preventDefault(); openLoginModal();">Pesan sekarang</a></span>
+        </div>
+        <button class="close-btn" onclick="closeAnnouncement()">&times;</button>
+    </div>
+
+    <header>
+        <a href="#beranda" class="logo-container">
+            <img src="/Assets/horizontal_logo.svg" alt="Logo Atas" class="logo-atas">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#layanan">Layanan</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#cara-pesan">Pesan Obat</a></li>
+                <li><a href="#testimoni">Cerita dari Pengguna</a></li>
+            </ul>
+        </nav>
+        <div class="auth-group" id="authGroup">
+            <a href="#" class="btn-login" onclick="event.preventDefault(); openLoginModal();">Log in</a>
+            <a href="#" class="btn-signup" onclick="event.preventDefault(); openRegisterModal();">Sign up</a>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="beranda" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-left">
+                    <h1>Konsultasi & pesan obat <br>jadi mudah tanpa keluar rumah</h1>
+                    <p class="hero-desc">Konsultasi dengan apoteker profesional, upload 
+                        resep dokter, dan <br>dapatkan obat langsung ke rumah Anda.</p>
+                    
+                    <div class="badge-container">
+                        <div class="badge">
+                            <img src="/Assets/badge.svg" alt="Badge" class="badge-icon">
+                            <div>
+                                <p>Berlisensi & Diawasi <br>Dinas Kesehatan</p>
+                            </div>
+                        </div>
+                        <div class="badge">
+                          <img src="/Assets/location.svg" alt="Location" class="badge-icon">
+                            <div>
+                                <p>Terhubung ke 500+ <br>Apotek di Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-center">
+                    <div class="carousel-card">
+                        <div class="carousel-slide active">
+                            <img src="/Assets/carousel1.svg" alt="Carousel 1">
+                            <div class="carousel-caption">
+                                <h3>Tebus Resep dan Pesan Obat Online <br>dengan Lebih Praktis</h3>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/Assets/carousel2.svg" alt="Carousel 2">
+                            <div class="carousel-caption">
+                                <h3>Upload Resep Dokter dan Konsultasi <br>Langsung dengan Apoteker</h3>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="/Assets/carousel3.svg" alt="Carousel 3">
+                            <div class="carousel-caption">
+                                <h3>Obat Dikirim dari Apotek Resmi Terdekat <br>dengan Lokasi Anda</h3>
+                            </div>
+                        </div>
+                        <button class="arrow arrow-left" onclick="changeSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="arrow arrow-right" onclick="changeSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <div class="trust-card">
+                        <div>
+                            <img src="/Assets/users.svg" alt="Users" class="user-avatars">
+                        </div>
+                        <h2>1500+</h2>
+                        <p>Ribuan pengguna telah bergabung bersama kami.</p>
+                        <a href="#" class="btn-join" onclick="event.preventDefault(); openLoginModal();">Gabung sekarang!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="search-dashboard">
+                <div class="search-inputs">
+                    <div class="input-group">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Cari obat, vitamin, atau suplemen..">
+                    </div>
+                    <div class="input-group border-left">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <input type="text" placeholder="Atur lokasi anda..">
+                    </div>
+                    <button class="btn-search"><i class="fa-solid fa-magnifying-glass" onclick="event.preventDefault(); openLoginModal();"></i></button>
+                </div>
+                <div class="trending-tags">
+                    <span class="tag-title">Anda mungkin mencari</span>
+                </div>
+                <div class="trending-tag">
+                    <a href="#" class="tag" onclick="event.preventDefault(); openLoginModal();">Obat sakit kepala <i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="#" class="tag" onclick="event.preventDefault(); openLoginModal();">Paracetamol <i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="#" class="tag" onclick="event.preventDefault(); openLoginModal();">Tremenza 10 tablet <i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="#" class="tag" onclick="event.preventDefault(); openLoginModal();">Vitacimin <i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="#" class="tag" onclick="event.preventDefault(); openLoginModal();">Obat tetes mata <i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="#" class="tag" onclick="event.preventDefault(); openLoginModal();">Mylanta <i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="#produk" class="others-link" onclick="event.preventDefault(); openLoginModal();">Lainnya</a>
+                </div>
+            </div>
+
+        <section id="layanan" class="services-section">
+            <div class="section-header">
+                <h1 class="section-title">Layanan Apotek Online</h1>
+                <a href="#produk" class="btn-more" onclick="event.preventDefault(); openLoginModal();">
+                    Lihat Selengkapnya <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-content">
+                        <h2 class="card-title">Pesan Obat Online</h2>
+                        <p class="card-description">Cari dan pesan obat praktis tanpa perlu keluar rumah.</p>
+                        <div class="badge-container-serv">
+                            <span class="badge-serv">Pesan Online</span>
+                            <span class="badge-serv">Praktis</span>
+                        </div>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="/Assets/layanan1.svg" class="card-image">
+                        <a href="#" class="card-overlay-btn" onclick="event.preventDefault(); openLoginModal();">
+                            Selengkapnya <span class="arrow-circle"><i class="fa-solid fa-arrow-right"></i></span></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h2 class="card-title">Upload Resep Dokter</h2>
+                        <p class="card-description">Upload resep dokter & tebus obat dengan mudah serta aman.</p>
+                        <div class="badge-container-serv">
+                            <span class="badge-serv">Scan</span>
+                            <span class="badge-serv">Upload</span>
+                        </div>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="/Assets/layanan2.svg" class="card-image">
+                        <a href="#" class="card-overlay-btn" onclick="event.preventDefault(); openLoginModal();">Selengkapnya <span class="arrow-circle"><i class="fa-solid fa-arrow-right"></i></span></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h2 class="card-title">Konsultasi Obat</h2>
+                        <p class="card-description">Konsultasi dosis dan efek samping gratis dengan Apoteker.</p>
+                        <div class="badge-container-serv">
+                            <span class="badge-serv">Konsultasi</span>
+                            <span class="badge-serv">Aman</span>
+                        </div>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="/Assets/layanan3.svg" class="card-image">
+                        <a href="#" class="card-overlay-btn" onclick="event.preventDefault(); openLoginModal();">Selengkapnya <span class="arrow-circle"><i class="fa-solid fa-arrow-right"></i></span></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h2 class="card-title">Lacak Pengiriman</h2>
+                        <p class="card-description">Pantau status perjalanan obat Anda secara real-time.</p>
+                        <div class="badge-container-serv">
+                            <span class="badge-serv">Live Track</span>
+                            <span class="badge-serv">Cepat</span>
+                        </div>
+                    </div>
+                    <div class="card-image-wrapper">
+                        <img src="/Assets/layanan4.svg" class="card-image">
+                        <a href="#" class="card-overlay-btn" onclick="event.preventDefault(); openLoginModal();">Selengkapnya <span class="arrow-circle"><i class="fa-solid fa-arrow-right"></i></span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="product-section-wrapper" id="produk">
+            <section class="product-hero">
+                <h1 class="headline">
+                    Pilihan Produk Kesehatan Lengkap <br>dan Terpercaya untuk Mendukung Aktivitas 
+                    <br>serta <span>Kesehatan Anda</span>
+                </h1>
+                <div class="cards-layer">
+                    <div class="card-anchor">
+                        <div class="blue-indicator"></div>
+                        <a href="#" class="item-card" onclick="event.preventDefault(); openLoginModal();">
+                            <div class="card-inner">
+                                <div class="thumb-wrapper" style="background-color: #fffbeb;">
+                                    <img src="/Assets/vitamin.svg" class="card-image">
+                                </div>
+                                <div class="meta-details">
+                                    <h3>Vitamin & Suplemen</h3>
+                                    <span class="badge-count">54 produk</span>
+                                </div>
+                            </div>
+                            <div class="chevron-link">❯</div>
+                        </a>
+                    </div>
+                    <div class="card-anchor">
+                        <div class="blue-indicator"></div>
+                        <a href="#" class="item-card" onclick="event.preventDefault(); openLoginModal();">
+                            <div class="card-inner">
+                                <div class="thumb-wrapper" style="background-color: #eff6ff;">
+                                    <img src="/Assets/obat_resep.svg" class="card-image">
+                                </div>
+                                <div class="meta-details">
+                                    <h3>Obat Resep Dokter</h3>
+                                    <span class="badge-count">36 produk</span>
+                                </div>
+                            </div>
+                            <div class="chevron-link">❯</div>
+                        </a>
+                    </div>
+                    <div class="card-anchor">
+                        <div class="blue-indicator"></div>
+                        <a href="#" class="item-card" onclick="event.preventDefault(); openLoginModal();">
+                            <div class="card-inner">
+                                <div class="thumb-wrapper" style="background-color: #fef2f2;">
+                                    <img src="/Assets/kesehatan_anak.svg" class="card-image">
+                                </div>
+                                <div class="meta-details">
+                                    <h3>Kesehatan Anak</h3>
+                                    <span class="badge-count">20 produk</span>
+                                </div>
+                            </div>
+                            <div class="chevron-link">❯</div>
+                        </a>
+                    </div>
+                    <div class="card-anchor">
+        <div class="blue-indicator"></div>
+        <a href="#" class="item-card" onclick="event.preventDefault(); openLoginModal();">
+            <div class="card-inner">
+                <div class="thumb-wrapper" style="background-color: #ecfeff;">
+                    <img src="/Assets/obat_flu.svg" class="card-image">
+                </div>
+                <div class="meta-details">
+                    <h3>Obat Flu & Batuk</h3>
+                    <span class="badge-count">28 produk</span>
+                </div>
+            </div>
+            <div class="chevron-link">❯</div>
+        </a>
+    </div>
+    <div class="card-anchor">
+        <div class="blue-indicator"></div>
+        <a href="#" class="item-card" onclick="event.preventDefault(); openLoginModal();">
+            <div class="card-inner">
+                <div class="thumb-wrapper" style="background-color: #f5f3ff;">
+                    <img src="/Assets/obat_tetes.svg" class="card-image">
+                </div>
+                <div class="meta-details">
+                    <h3>Obat Tetes & Salep</h3>
+                    <span class="badge-count">18 produk</span>
+                </div>
+            </div>
+            <div class="chevron-link">❯</div>
+        </a>
+    </div>
+    <div class="card-anchor">
+        <div class="blue-indicator"></div>
+        <a href="#" class="item-card" onclick="event.preventDefault(); openLoginModal();">
+            <div class="card-inner">
+                <div class="thumb-wrapper" style="background-color: #f1f5f9;">
+                    <img src="/Assets/kategori_lainnya.svg" class="card-image">
+                </div>
+                <div class="meta-details">
+                    <h3>Kategori Lainnya</h3>
+                    <span class="badge-count">100+ produk</span>
+                </div>
+            </div>
+            <div class="chevron-link">❯</div>
+        </a>
+    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="cara-pesan" class="steps-section">
+            <h2>Cara Pesan Obat Online</h2>
+            <p class="sub">Alur mudah memesan produk kesehatan dan kebutuhan 
+                obat Anda di PharmaPlus</p>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <span class="step-num">1</span>
+                    <i class="fa-solid fa-mobile-screen-button" style="font-size: 36px; 
+                    color:#3b82f6; margin: 15px auto; display:block;"></i>
+                    <h4>Cari obat atau Produk</h4>
+                    <p>Ketik produk kesehatan yang Anda perlukan di dasbor pencarian atas.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">2</span>
+                    <i class="fa-solid fa-cart-shopping" style="font-size: 36px; color:#3b82f6; 
+                    margin: 15px auto; display:block;"></i>
+                    <h4>Pilih & Tambah ke Keranjang</h4>
+                    <p>Atur total jumlah item obat dan masukkan langsung ke keranjang belanja.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">3</span>
+                    <i class="fa-solid fa-file-invoice" style="font-size: 36px; color:#3b82f6; 
+                    margin: 15px auto; display:block;"></i>
+                    <h4>Isi Detail dan Alamat</h4>
+                    <p>Tuliskan data alamat penerima secara lengkap serta opsi jenis kurir.</p>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">4</span>
+                    <i class="fa-solid fa-box-open" style="font-size: 36px; color:#3b82f6; margin: 15px auto; display:block;"></i>
+                    <h4>Kurir Antar Paket</h4>
+                    <p>Konfirmasi transaksi, obat dikirim cepat lewat armada terdekat.</p>
+                </div>
+            </div>
+
+            <div class="info-alert">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span><strong>Privasi Paket Keamanan Terjamin:</strong> Seluruh item resep dokter disegel rapat untuk menjaga kerahasiaan informasi medis Anda.</span>
+            </div>
+        </section>
+
+        <section id="testimoni" class="story-section">
+            <h2>Cerita dari Pengguna</h2>
+            <p style="color: var(--text-muted); font-size: 15px; margin-top: 10px; color: #353D4C">Apa kata mereka yang telah menggunakan layanan PharmaPlus</p>
+            
+            <div class="story-container">
+
+    <!-- TESTIMONI 1 (HIGHLIGHT) -->
+    <div class="story-card featured">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+
+        <p class="story-text">
+            "Pelayanannya sangat ramah dan komplit. Resep dari dokter langsung diverifikasi oleh apoteker online-nya sehingga membuat proses jadi lebih tenang."
+        </p>
+
+        <div class="profile-meta">
+            <div class="profile-img">BS</div>
+            <div class="profile-info">
+                <h4>Budi Santoso</h4>
+                <span>Pasien Rutin</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TESTIMONI 2 -->
+    <div class="story-card">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+
+        <p class="story-text">
+            "Pesan obat untuk emergency malam hari jadi mudah sekali. Layanan pengirimannya super cepat, kurang dari satu jam kurir sudah sampai depan pagar."
+        </p>
+
+        <div class="profile-meta">
+            <div class="profile-img" style="background-color:#10b981;">CL</div>
+            <div class="profile-info">
+                <h4>Citra Lestari</h4>
+                <span>Ibu Rumah Tangga</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TESTIMONI 3 (BARU) -->
+    <div class="story-card">
+        <div class="stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+
+        <p class="story-text">
+            "Aplikasi sangat membantu, terutama untuk membeli obat tanpa harus keluar rumah. Prosesnya cepat dan sangat praktis."
+        </p>
+
+        <div class="profile-meta">
+            <div class="profile-img" style="background-color:#f59e0b;">AR</div>
+            <div class="profile-info">
+                <h4>Andi Ramadhan</h4>
+                <span>Karyawan Swasta</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+            <button class="btn-all-testimonials" onclick="event.preventDefault(); openLoginModal();">Lihat semua testimoni</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo-container">
+                    <div class="logo-footer">
+                        <img src="/Assets/horizontal_logo.svg" class="card-image">
+                    </div>
+                </div>
+                <p>Platform apotek digital terpercaya di Indonesia yang menghubungkan jutaan pasien ke jaringan penyedia obat resmi berlisensi secara aman dan transparan.</p>
+                <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="">Tebus Resep</a></li>
+                    <li><a href="">Beli Obat Rutin</a></li>
+                    <li><a href="">Konsultasi Medis</a></li>
+                    <li><a href="">Toko Kesehatan</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Informasi</h4>
+                <ul>
+                    <li><a href="">Tentang Kami</a></li>
+                    <li><a href="">Blog Kesehatan</a></li>
+                    <li><a href="">Karir</a></li>
+                    <li><a href="">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Hubungi Kami</h4>
+                <div class="contact-info">
+                    <p><i class="fa-solid fa-phone"></i> (021) 1234-5678</p>
+                    <p><i class="fa-solid fa-envelope"></i> support@pharmaplus.co.id</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Jl. Kesehatan No. 10, Jakarta, Indonesia</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PharmaPlus Indonesia. Seluruh Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <!-- LOGIN POPUP MODAL -->
+<div class="modal-overlay" id="loginModal" onclick="closeLoginModal(event)">
+    <div class="modal-card">
+
+        <button class="modal-close-btn" onclick="closeModal()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Logo -->
+        <div class="modal-logo">
+            <img src="/Assets/favicon.svg" alt="PharmaPlus Logo">
+        </div>
+
+        <!-- Heading -->
+        <h2 class="modal-title">Selamat Datang</h2>
+        <p class="modal-subtitle">Masukkan detail akun Anda disini.</p>
+
+        <!-- Social Login -->
+        <div class="social-login-group">
+            <button class="social-btn">
+                <i class="fa-brands fa-apple"></i>
+            </button>
+            <button class="social-btn">
+                <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z"/></svg>
+            </button>
+            <button class="social-btn">
+                <i class="fa-brands fa-twitter" style="color:#1d9bf0;"></i>
+            </button>
+        </div>
+
+        <!-- Divider -->
+        <div class="modal-divider">
+            <span>atau</span>
+        </div>
+
+        <!-- Form -->
+        <div class="modal-form">
+            <div class="form-group">
+                <label>Alamat Email</label>
+                <input type="email" placeholder="Masukkan email Anda..." id="modalEmail">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <div class="password-wrapper">
+                    <input type="password" placeholder="••••••••••" id="modalPassword">
+                    <button class="toggle-password" onclick="togglePassword()" type="button">
+                        <i class="fa-regular fa-eye" id="eyeIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Remember & Forgot -->
+            <div class="form-meta">
+                <label class="remember-label">
+                    <input type="checkbox" id="rememberMe">
+                    <span class="custom-checkbox"></span>
+                    <span class="ingat-saya">Ingat saya</span>
+                </label>
+                <a href="#" class="forgot-link">Lupa password?</a>
+            </div>
+
+            <!-- Submit -->
+            <button class="btn-modal-login" onclick="handleModalLogin()">Log in</button>
+        </div>
+    </div>
+</div>
+
+<!-- REGISTER POPUP MODAL -->
+<div class="modal-overlay" id="registerModal" onclick="closeRegisterModal(event)">
+    <div class="modal-card">
+
+        <button class="modal-close-btn" onclick="closeRegisterModalBtn()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Logo -->
+        <div class="modal-logo">
+            <img src="/Assets/favicon.svg" alt="PharmaPlus Logo">
+        </div>
+
+        <!-- Heading -->
+        <h2 class="modal-title">Buat Akun Baru</h2>
+        <p class="modal-subtitle">Isikan data akun baru anda disini.</p>
+
+        <!-- Form -->
+        <div class="modal-form">
+
+            <!-- Nama Lengkap -->
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <div class="input-icon-wrapper">
+                    <i class="fa-regular fa-user input-icon"></i>
+                    <input type="text" placeholder="Masukkan nama lengkap Anda..." id="regName">
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label>Alamat Email</label>
+                <div class="input-icon-wrapper">
+                    <i class="fa-regular fa-envelope input-icon"></i>
+                    <input type="email" placeholder="Masukkan email Anda..." id="regEmail">
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label>Password</label>
+                <div class="password-wrapper input-icon-wrapper">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" placeholder="Minimal 8 karakter" id="regPassword">
+                    <button class="toggle-password" onclick="toggleRegPassword()" type="button">
+                        <i class="fa-regular fa-eye" id="regEyeIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Konfirmasi Password -->
+            <div class="form-group">
+                <label>Konfirmasi Password</label>
+                <div class="password-wrapper input-icon-wrapper">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" placeholder="Ulangi password Anda" id="regConfirmPassword">
+                    <button class="toggle-password" onclick="toggleRegConfirmPassword()" type="button">
+                        <i class="fa-regular fa-eye" id="regEyeIconConfirm"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <button class="btn-modal-login" onclick="handleRegister()">Buat Akun</button>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
